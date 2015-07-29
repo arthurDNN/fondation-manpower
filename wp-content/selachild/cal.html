@@ -1,0 +1,46 @@
+<div class="single">
+		<div class="post">
+			<div class = "periode">
+				<div class="months">
+						<div class="pagination">
+						<h1 class="year"><?php echo $year; ?></h1>
+						<?php foreach ($date->months as $id => $m): ?>
+								<a href = '#' id = 'linkmonth<?php echo $id+1; ?>' class = "page"><?php echo utf8_encode(substr(utf8_decode($m), 0,3)); ?></a>
+						<?php endforeach ?>
+						</div>
+				</div>
+				<?php $dates = current($dates); ?>
+				<?php foreach ($dates as $m => $days): ?>
+					<div class="month" id = "month<?php echo $m; ?>">
+						<table class = "monthboxes">
+							<thead>
+								<tr>
+									<?php foreach ($date->days as $d): ?>
+										<th class = "weekdays"><?php echo substr($d,0,3); ?></th>
+									<?php endforeach ?>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+								<?php $end = end($days); foreach ($days as $day => $w): ?>
+									<?php if ($day == 1 && $w > 1): ?>
+										<td colspan = "<?php echo $w-1; ?>" class = "padding"></td>
+									<?php endif ?>
+									<td class = "weekdays">
+										<div class = "relative"><?php echo $day; ?></div>
+										<span class = '<?php echo $week;?>'></span>
+										<span class = "<?php echo $day;?>"></span>
+									</td>
+									<?php if ($w == 7): ?>
+									</tr><tr>
+									<?php endif ?>
+								<?php endforeach ?>
+								<?php if ($end != 7): ?>
+									<td colspan = "<?php echo 7-$end; ?>" class = "padding"></td>
+								<?php endif ?>
+							</tr>
+							</tbody>
+						</table>
+					</div>
+				<?php endforeach ?>
+			</div>

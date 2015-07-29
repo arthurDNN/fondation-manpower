@@ -25,6 +25,7 @@ $year = date('Y');
 $month = date('n');
 $dates = $date->get_all($year);
 ?>
+
 <!-- Début header -->
 <?php get_header(); ?>
 <!-- Fin header -->
@@ -36,8 +37,7 @@ $dates = $date->get_all($year);
 	<h3><?php echo $user->user_firstname.' '.$user->user_lastname; ?></h3>
 	<h3><?php echo $selected; ?></h3>
 	<!-- Fin affichage des informations utilisateur -->
-	<!-- Formulaire du compteur de pas -->
-	<!-- Fin formulaire du compteur de pas -->
+
 		<div class="single">
 		<div class="post">
 			<div class = "periode">
@@ -67,7 +67,7 @@ $dates = $date->get_all($year);
 										<td colspan = "<?php echo $w-1; ?>" class = "padding"></td>
 									<?php endif ?>
 									<td class = "weekdays">
-										<span id = "<?php echo $m.'/'.$day;?>"></span>
+										<span id = "<?php echo $m.'/'.$day.'/'.$w;?>"></span>
 										<div class = "relative"><?php echo $day; ?></div>
 										<div class = "compteurdepas">
 											<input type = 'text' name = 'nbpas' class = 'nbpas'/></br>

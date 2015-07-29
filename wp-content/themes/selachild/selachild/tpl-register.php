@@ -65,11 +65,8 @@ if(!empty($_POST))
 					{
 						// Rajout des métas que si l'utilisateur a bien été inscrit : pour le cp 
 						// et pour les associations
-						$res = '';
 						add_user_meta($user, 'user_cp', $d['user_cp']);
 						add_user_meta($user, 'association', $d['associations']);
-						add_user_meta($user, 'lespas', $res);
-						add_user_meta($user, 'totalpas', 0);
 						// Puis nous envoyons un mail afin d'envoyer une confirmation à l'utilisateur
 						$msg = "Bonjour,\r\nConfirmez votre inscription en cliquant sur le liens suivant :\r\n
 								".site_url()."/index.php/confirmation?login=".urlencode($d['user_login'])."&email=".urlencode($d['user_email']);

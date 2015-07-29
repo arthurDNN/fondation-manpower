@@ -35,26 +35,11 @@ function site_router()
 		require 'tpl-confirmation.php';
 		die();
 	}
-	else if((count($url) == 2) && $url[1] == 'ajax')
-	{
-		require 'ajax.php';
-		die();
-	}
 }
 
 // Overide de la fonction worpress afin que site_router soit appelée
-add_action( 'send_headers', 'site_router' );
+//add_action( 'send_headers', 'site_router' );
 
 // Suppression de la barre d'administration 
 add_filter('show_admin_bar', '__return_false');
-
-
-// On inclut les scripts JQuery et ceux du thème enfant 
-function bbx_enqueue_scripts() 
-{ 
-	wp_enqueue_script( 'jquery' ); 
-	wp_enqueue_script( 'calendar-script', get_stylesheet_directory_uri() . '/js/calendar.js', array(), '20140813', true );
-} 
-add_action( 'wp_enqueue_scripts', 'bbx_enqueue_scripts' );
-
 ?>

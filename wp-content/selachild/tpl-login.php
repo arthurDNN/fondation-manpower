@@ -38,7 +38,7 @@ if(!empty($_POST))
 	{
 		$error = $user->get_error_message();
 	}
-	// Si les informations de login sont inccorects, alors l'utilisateur doit réessayer
+	// Si les informations de login sont iccorects, alors l'utilisateur doit réessayer
 	// sinon il est redirigé vers son profil
 	else
 	{
